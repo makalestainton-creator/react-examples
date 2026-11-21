@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import './App.css';
 
-const COLORS = ['pink', 'green', 'blue', 'yellow', 'purple'];
+const COLORS = ['pink', 'gold', 'dodgerblue', 'silver', 'plum'];
 
 function App() {
   const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
+  const [bgChangeCount, setBgChangeCount] = useState(0);
 
   const onButtonClick = (color) => () => {
     setBackgroundColor(color);
+    setBgChangeCount((n) => n + 1);
   };
 
   return (
@@ -27,6 +29,7 @@ function App() {
           {color}
         </button>
       ))}
+      <p>You have changed the background {bgChangeCount} times.</p>
     </div>
   );
 }
